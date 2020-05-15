@@ -1,0 +1,8 @@
+._*
+.DS_Store
+/.history/
+node_modules/
+__sapper__/
+/src/node_modules/@sapper/
+static/main.css
+static/main.css.map

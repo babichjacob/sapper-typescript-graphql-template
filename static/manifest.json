@@ -1,0 +1,33 @@
+{
+	"short_name": "Sapper + PostCSS",
+	"name": "Sapper with PostCSS project base",
+	"description": "A template that includes Svelte with Sapper and PostCSS preprocessing with Tailwind CSS",
+	"categories": ["personalization", "productivity"],
+	"lang": "en-US",
+	"dir": "ltr",
+	"icons": [
+		{
+			"src": "logo-192.png",
+			"sizes": "192x192",
+			"type": "image/png",
+			"purpose": "any maskable"
+		},
+		{
+			"src": "logo-512.png",
+			"sizes": "512x512",
+			"type": "image/png",
+			"purpose": "any maskable"
+		}
+	],
+	"start_url": "/",
+	"display": "minimal-ui",
+	"background_color": "#ffffff",
+	"theme_color": "#0096D1",
+	"screenshots": [
+		{
+			"src": "screenshot-1.png",
+			"sizes": "1280x720",
+			"type": "image/png"
+		}
+	]
+}

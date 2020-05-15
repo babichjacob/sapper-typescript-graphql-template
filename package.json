@@ -1,0 +1,62 @@
+{
+  "name": "sapper-postcss-template",
+  "description": "A template that includes Svelte with Sapper and PostCSS preprocessing with Tailwind CSS",
+  "keywords": [
+    "sapper",
+    "eslint",
+    "postcss",
+    "purgecss",
+    "svelte",
+    "tailwindcss",
+    "cssnano"
+  ],
+  "homepage": "https://github.com/babichjacob/sapper-postcss-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/babichjacob/sapper-postcss-template.git"
+  },
+  "license": "MIT",
+  "version": "2020.05.03",
+  "scripts": {
+    "eslint": "eslint",
+    "eslint:fix": "eslint --fix ./src/*.js ./*.js ./src/routes/*.svelte ./src/components/*.svelte",
+    "dev": "sapper dev",
+    "build": "cross-env NODE_ENV=production sapper build --legacy",
+    "prod": "npm run build",
+    "export": "cross-env NODE_ENV=production sapper export --legacy",
+    "start": "node __sapper__/build"
+  },
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "sirv": "^0.4.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.0.0",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0",
+    "@babel/plugin-transform-runtime": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "@babel/runtime": "^7.0.0",
+    "@rollup/plugin-commonjs": "11.0.2",
+    "@rollup/plugin-node-resolve": "^7.0.0",
+    "@rollup/plugin-replace": "^2.2.0",
+    "cross-env": "^7.0.2",
+    "cssnano": "^4.1.10",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-svelte3": "^2.7.3",
+    "postcss": "^7.0.29",
+    "postcss-import": "^12.0.1",
+    "postcss-load-config": "^2.1.0",
+    "postcss-preset-env": "^6.7.0",
+    "rollup": "^2.7.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-svelte": "^5.0.1",
+    "rollup-plugin-terser": "^5.3.0",
+    "sapper": "^0.27.0",
+    "svelte": "^3.22.2",
+    "svelte-preprocess": "^3.7.4",
+    "tailwindcss": "^1.4.4"
+  }
+}

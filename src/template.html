@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1.0" />
+
+		%sapper.base%
+
+		<link rel="manifest" href="manifest.json" />
+		<meta name="theme-color" content="#0096D1">
+
+		<link rel="icon" type="image/png" href="favicon.png" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180.png">
+
+		<!-- Sapper generates a <style> tag containing critical CSS
+  		for the current page. CSS for the rest of the app is
+  		lazily loaded when it precaches secondary pages -->
+		%sapper.styles%
+
+		<!-- This contains the contents of the <svelte:head> component, if
+		the current page has one -->
+		%sapper.head%
+	</head>
+
+	<body class="flex flex-col w-full min-h-screen leading-none">
+		<div class="flex flex-col flex-1" id="sapper">
+			%sapper.html%
+		</div>
+
+		%sapper.scripts%
+	</body>
+</html>
