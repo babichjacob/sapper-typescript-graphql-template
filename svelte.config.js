@@ -1,10 +1,15 @@
 const preprocess = require("svelte-preprocess");
 
+const mode = process.env.NODE_ENV;
+const dev = mode === "development";
+
 module.exports = {
-	preprocess: [
-		// You could have more preprocessors, like MDsveX
-		preprocess({
-			postcss: true,
-		}),
-	],
+	preprocess: preprocess({
+		typescript: {
+			// This returns compilation times back to what they're like without TypeScript
+			// And still type checks for production builds
+			// Use IDE tools for type checking during development instead
+			transpileOnly: dev,
+		},
+	}),
 };

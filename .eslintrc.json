@@ -1,61 +1,67 @@
 {
-    "extends": [
-        "eslint:recommended",
-        "airbnb-base"
-    ],
-    "parserOptions": {
-        "ecmaVersion": 11,
-        "sourceType": "module"
-    },
-    "env": {
-        "node": true,
-        "browser": true,
-        "es2020": true
-    },
-    "rules": {
-        "class-methods-use-this": "off",
-        "import/prefer-default-export": "off",
-        "import/no-extraneous-dependencies": "off",
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "no-console": "off",
-        "no-tabs": [
-            "error",
-            {
-                "allowIndentationTabs": true
-            }
-        ],
-        "no-unused-vars": [
-            "error",
-            {
-                "argsIgnorePattern": "^_"
-            }
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ]
-    },
-    "overrides": [
-        {
-            "files": [
-                "*.svelte"
-            ],
-            "plugins": [
-                "svelte3"
-            ],
-            "processor": "svelte3/svelte3",
-            "rules": {
-                "import/first": "off",
-                "import/no-duplicates": "off",
-                "import/no-mutable-exports": "off",
-                "import/no-mutable-unresolved": "off",
-                "no-multiple-empty-lines": "off",
-                "no-undef": "off",
-                "no-unused-vars": "off"
-            }
-        }
-    ]
+	"extends": [
+		"eslint:recommended",
+		"airbnb-base"
+	],
+	"parserOptions": {
+		"ecmaVersion": 11,
+		"sourceType": "module",
+		"project": "./tsconfig.json"
+	},
+	"env": {
+		"node": true,
+		"browser": true,
+		"es2020": true
+	},
+	"rules": {
+		"class-methods-use-this": "off",
+		"import/prefer-default-export": "off",
+		"import/no-extraneous-dependencies": "off",
+		"indent": [
+			"error",
+			"tab"
+		],
+		"no-console": "off",
+		"no-tabs": [
+			"error",
+			{
+				"allowIndentationTabs": true
+			}
+		],
+		"quotes": [
+			"error",
+			"double"
+		]
+	},
+	"overrides": [
+		{
+			"files": [
+				"*.ts"
+			],
+			"parser": "@typescript-eslint/parser",
+			"extends": [
+				"plugin:@typescript-eslint/recommended"
+			],
+			"plugins": [
+				"@typescript-eslint"
+			]
+		},
+		{
+			"files": [
+				"*.svelte"
+			],
+			"plugins": [
+				"svelte3"
+			],
+			"processor": "svelte3/svelte3",
+			"rules": {
+				"import/first": "off",
+				"import/no-duplicates": "off",
+				"import/no-mutable-exports": "off",
+				"import/no-mutable-unresolved": "off",
+				"no-undef": "off",
+				"no-unused-vars": "off"
+			}
+		}
+	]
 }

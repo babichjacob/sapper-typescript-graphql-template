@@ -1,7 +1,7 @@
 {
-	"short_name": "Sapper + PostCSS",
-	"name": "Sapper with PostCSS project base",
-	"description": "A template that includes Svelte with Sapper and PostCSS preprocessing with Tailwind CSS",
+	"short_name": "Sapper + TypeScript + GraphQL",
+	"name": "Sapper with TypeScript and GraphQL project base",
+	"description": "A template that includes Svelte with Sapper, TypeScript preprocessing, and a GraphQL server through TypeGraphQL",
 	"categories": ["personalization", "productivity"],
 	"lang": "en-US",
 	"dir": "ltr",
@@ -26,6 +26,11 @@
 	"screenshots": [
 		{
 			"src": "screenshot-1.png",
+			"sizes": "1280x720",
+			"type": "image/png"
+		},
+		{
+			"src": "screenshot-2.png",
 			"sizes": "1280x720",
 			"type": "image/png"
 		}

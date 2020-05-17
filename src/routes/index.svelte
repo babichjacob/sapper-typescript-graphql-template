@@ -1,15 +1,46 @@
 <script>
-	import ExampleComponent from "../components/ExampleComponent.svelte";
+  import ExampleComponent from "../components/ExampleComponent.svelte";
 </script>
 
-<style lang="postcss">
+<style>
 	.centerer {
-		@apply flex-1 flex flex-col items-center justify-center;
+		flex: 1 1 0%;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+	}
+
+	.button {
+		margin-top: 2.5rem;
+		padding: 0.75rem;
+		border-radius: 0.5rem;
+		box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+		transition-property: background-color, color, box-shadow;
+		transition-duration: 200ms;
+		transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+		text-decoration: none;
+	}
+
+	.button:focus {
+		outline: 0;
+		box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+	}
+
+	.button-pink {
+		color: #97266D;
+		background-color: #FED7E2;
+	}
+
+	.button-pink:hover, .button-pink:focus {
+		background-color: #FBB6CE;
 	}
 </style>
 
-<div class:centerer={true}> <!-- Here's how you could extract conditional class groups with @apply -->
+<div class="centerer">
 	<ExampleComponent
-		title="🌐 Sapper with PostCSS project base"
+		title="🌐 Sapper with TypeScript and GraphQL project base"
 		paragraph="This is an example route and component to make sure everything's working." />
+	
+	<a class="button button-pink" href="/graphql">Check out the GraphQL playground!</a>
 </div>

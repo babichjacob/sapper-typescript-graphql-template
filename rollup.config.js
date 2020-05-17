@@ -1,20 +1,29 @@
 import resolve from "@rollup/plugin-node-resolve";
 import replace from "@rollup/plugin-replace";
 import commonjs from "@rollup/plugin-commonjs";
+import json from "@rollup/plugin-json";
+import typescript from "@rollup/plugin-typescript";
 import svelte from "rollup-plugin-svelte";
 import babel from "rollup-plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
 import pkg from "./package.json";
 
-const { preprocess } = require("./svelte.config");
+const preprocess = [
+	require("./svelte.config").preprocess, // eslint-disable-line global-require
+	// You could have more preprocessors, like MDsveX
+];
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const sourcemap = !dev;
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
-const onwarn = (warning, onwarn_) => (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) || onwarn_(warning);
+const warningIsIgnored = (warning) => warning.message.includes(
+	"Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification",
+) || warning.message.includes("Circular dependency: node_modules");
+
+const onwarn = (warning, onwarn_) => (warning.code === "CIRCULAR_DEPENDENCY" && /[/\\]@sapper[/\\]/.test(warning.message)) || warningIsIgnored(warning) || onwarn_(warning);
 
 export default {
 	client: {
@@ -36,6 +45,8 @@ export default {
 				dedupe: ["svelte"],
 			}),
 			commonjs(),
+			typescript(),
+			json(),
 
 			legacy && babel({
 				extensions: [".js", ".mjs", ".html", ".svelte"],
@@ -72,6 +83,7 @@ export default {
 			replace({
 				"process.browser": false,
 				"process.env.NODE_ENV": JSON.stringify(mode),
+				"module.require": "require",
 			}),
 			svelte({
 				generate: "ssr",
@@ -81,7 +93,12 @@ export default {
 			resolve({
 				dedupe: ["svelte"],
 			}),
-			commonjs(),
+			commonjs({
+				extensions: [".js", ".ts"],
+				namedExports: { "type-graphql": ["buildSchema", "ObjectType", "Field", "ID", "Query", "Resolver"] },
+			}),
+			typescript(),
+			json(),
 		],
 		external: Object.keys(pkg.dependencies).concat(
 			require("module").builtinModules || Object.keys(process.binding("natives")), // eslint-disable-line global-require
