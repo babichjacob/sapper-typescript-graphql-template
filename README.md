@@ -8,7 +8,6 @@ If you're looking for something with much, much more bundled in, check out [my o
 
 - [Sapper for Svelte](https://sapper.svelte.dev/)
   - [Official VS Code Plugin (beta)](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
-  - [Type Checker VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=halfnelson.svelte-type-checker-vscode)
 - [TypeScript](https://www.typescriptlang.org/)
   - [TypeGraphQL](https://typegraphql.ml/)
   - Inside Svelte components, thanks to [`svelte-preprocess`](https://github.com/kaisermann/svelte-preprocess)
