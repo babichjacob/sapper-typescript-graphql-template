@@ -8,9 +8,10 @@ import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
 import pkg from "./package.json";
+import svelteConfig from "./svelte.config";
 
 const preprocess = [
-	require("./svelte.config").preprocess, // eslint-disable-line global-require
+	svelteConfig.preprocess,
 	// You could have more preprocessors, like MDsveX
 ];
 

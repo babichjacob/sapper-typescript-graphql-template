@@ -1,9 +1,9 @@
-const preprocess = require("svelte-preprocess");
+import preprocess from 'svelte-preprocess';
 
 const mode = process.env.NODE_ENV;
-const dev = mode === "development";
+const dev = mode === 'development';
 
-module.exports = {
+export default {
 	preprocess: preprocess({
 		typescript: {
 			// This returns compilation times back to what they're like without TypeScript
@@ -12,4 +12,4 @@ module.exports = {
 			transpileOnly: dev,
 		},
 	}),
-};
+}
