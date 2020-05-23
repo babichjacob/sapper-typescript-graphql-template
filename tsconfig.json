@@ -5,6 +5,7 @@
             "dom",
             "es2016",
             "esnext.asynciterable",
+            "webworker",
         ],
         "typeRoots": [
             "node_modules/@types",
