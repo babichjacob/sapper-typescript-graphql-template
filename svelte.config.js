@@ -1,7 +1,7 @@
-import preprocess from 'svelte-preprocess';
+import preprocess from "svelte-preprocess";
 
 const mode = process.env.NODE_ENV;
-const dev = mode === 'development';
+const dev = mode === "development";
 
 export default {
 	preprocess: preprocess({
