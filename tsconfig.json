@@ -6,10 +6,6 @@
             "es2016",
             "esnext.asynciterable",
         ],
-        "typeRoots": [
-            "node_modules/@types",
-        ],
-        "types": [],
         "allowSyntheticDefaultImports": true,
         "alwaysStrict": true,
         "experimentalDecorators": true,
