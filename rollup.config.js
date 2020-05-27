@@ -8,16 +8,16 @@ import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
 import pkg from "./package.json";
-import svelteConfig from "./svelte.config";
+import { preprocess as sveltePreprocessConfig } from "./svelte.config";
 
 const preprocess = [
-	svelteConfig.preprocess,
+	sveltePreprocessConfig,
 	// You could have more preprocessors, like MDsveX
 ];
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
-const sourcemap = !dev;
+const sourcemap = dev ? "inline" : false;
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
 
 const warningIsIgnored = (warning) => warning.message.includes(
@@ -71,10 +71,8 @@ export default {
 			}),
 		],
 
+		preserveEntrySignatures: false,
 		onwarn,
-
-		// https://github.com/babichjacob/sapper-postcss-template/pull/5#issuecomment-623172265
-		preserveEntrySignatures: "strict",
 	},
 
 	server: {
@@ -94,10 +92,7 @@ export default {
 			resolve({
 				dedupe: ["svelte"],
 			}),
-			commonjs({
-				extensions: [".js", ".ts"],
-				namedExports: { "type-graphql": ["buildSchema", "ObjectType", "Field", "ID", "Query", "Resolver"] },
-			}),
+			commonjs(),
 			typescript(),
 			json(),
 		],
@@ -105,6 +100,7 @@ export default {
 			require("module").builtinModules || Object.keys(process.binding("natives")), // eslint-disable-line global-require
 		),
 
+		preserveEntrySignatures: "strict",
 		onwarn,
 	},
 
@@ -121,6 +117,7 @@ export default {
 			!dev && terser(),
 		],
 
+		preserveEntrySignatures: false,
 		onwarn,
 	},
 };

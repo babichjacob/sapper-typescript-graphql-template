@@ -1,6 +1,6 @@
 /* eslint-disable no-restricted-globals */
 import {
-	files, routes, shell, timestamp, // eslint-disable-line no-unused-vars
+	timestamp, files, shell, routes, // eslint-disable-line no-unused-vars
 } from "@sapper/service-worker"; // eslint-disable-line import/no-unresolved
 
 const ASSETS = `cache${timestamp}`;
@@ -10,7 +10,7 @@ const ASSETS = `cache${timestamp}`;
 const toCache = shell.concat(files);
 const cached = new Set(toCache);
 
-self.addEventListener("install", (event) => { // eslint-disable-line no-shadow,no-inline-comments,line-comment-position
+self.addEventListener("install", (event) => {
 	event.waitUntil(
 		caches
 			.open(ASSETS)
@@ -21,42 +21,41 @@ self.addEventListener("install", (event) => { // eslint-disable-line no-shadow,n
 	);
 });
 
-self.addEventListener("activate", (event) => { // eslint-disable-line no-shadow,no-inline-comments,line-comment-position
+self.addEventListener("activate", (event) => {
 	event.waitUntil(
 		caches.keys().then(async (keys) => {
-			// Delete old caches
+			// delete old caches
 			for (const key of keys) { // eslint-disable-line no-restricted-syntax
 				if (key !== ASSETS) await caches.delete(key); // eslint-disable-line no-await-in-loop
 			}
-
 
 			self.clients.claim();
 		}),
 	);
 });
 
-self.addEventListener("fetch", (event) => { // eslint-disable-line no-shadow,no-inline-comments,line-comment-position
+self.addEventListener("fetch", (event) => {
 	if (event.request.method !== "GET" || event.request.headers.has("range")) return;
 
 	const url = new URL(event.request.url);
 
-	// Don't try to handle e.g. data: URIs
+	// don't try to handle e.g. data: URIs
 	if (!url.protocol.startsWith("http")) return;
 
-	// Ignore dev server requests
+	// ignore dev server requests
 	if (url.hostname === self.location.hostname && url.port !== self.location.port) return;
 
-	// Always serve static files and bundler-generated assets from cache
+	// always serve static files and bundler-generated assets from cache
 	if (url.host === self.location.host && cached.has(url.pathname)) {
 		event.respondWith(caches.match(event.request));
 		return;
 	}
 
-	// For pages, you might want to serve a shell `service-worker-index.html` file,
-	// Which Sapper has generated for you. It's not right for every
-	// App, but if it's right for yours then uncomment this section
+	// for pages, you might want to serve a shell `service-worker-index.html` file,
+	// which Sapper has generated for you. It's not right for every
+	// app, but if it's right for yours then uncomment this section
 	/*
-	If (url.origin === self.origin && routes.find(route => route.pattern.test(url.pathname))) {
+	if (url.origin === self.origin && routes.find(route => route.pattern.test(url.pathname))) {
 		event.respondWith(caches.match('/service-worker-index.html'));
 		return;
 	}
@@ -64,9 +63,9 @@ self.addEventListener("fetch", (event) => { // eslint-disable-line no-shadow,no-
 
 	if (event.request.cache === "only-if-cached") return;
 
-	// For everything else, try the network first, falling back to
-	// Cache if the user is offline. (If the pages never change, you
-	// Might prefer a cache-first approach to a network-first one.)
+	// for everything else, try the network first, falling back to
+	// cache if the user is offline. (If the pages never change, you
+	// might prefer a cache-first approach to a network-first one.)
 	event.respondWith(
 		caches
 			.open(`offline${timestamp}`)

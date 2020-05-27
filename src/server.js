@@ -4,8 +4,9 @@ import express from "express";
 import sirv from "sirv";
 import { createApolloServer } from "./graphql/index.ts";
 
-const { PORT, NODE_ENV } = process.env;
-const dev = NODE_ENV === "development";
+const PORT = process.env.PORT; // eslint-disable-line prefer-destructuring
+// @ts-ignore
+const dev = process.env.NODE_ENV === "development";
 
 
 const createSapperAndApolloServer = async (graphqlPath) => {

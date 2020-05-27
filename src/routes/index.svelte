@@ -1,5 +1,5 @@
 <script lang="typescript">
-  import ExampleComponent from "../components/ExampleComponent.svelte";
+	import ExampleComponent from "../components/ExampleComponent.svelte";
 </script>
 
 <style>
