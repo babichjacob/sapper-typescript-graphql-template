@@ -1,4 +1,4 @@
-<script>
+<script lang="typescript">
   import ExampleComponent from "../components/ExampleComponent.svelte";
 </script>
 
