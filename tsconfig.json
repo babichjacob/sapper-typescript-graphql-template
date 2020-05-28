@@ -1,8 +1,10 @@
 {
     "compilerOptions": {
         "target": "ES2016",
+        "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true,
+        "moduleResolution": "node",
         "skipLibCheck": true,
         "strict": true
     },

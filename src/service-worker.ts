@@ -1,7 +1,6 @@
-/* eslint-disable no-restricted-globals */
-import {
-	timestamp, files, shell, routes, // eslint-disable-line no-unused-vars
-} from "@sapper/service-worker"; // eslint-disable-line import/no-unresolved
+/* eslint-disable no-restricted-globals,@typescript-eslint/no-explicit-any */
+// @ts-ignore -- generated package
+import { timestamp, files, shell } from "@sapper/service-worker";
 
 const ASSETS = `cache${timestamp}`;
 
@@ -10,18 +9,18 @@ const ASSETS = `cache${timestamp}`;
 const toCache = shell.concat(files);
 const cached = new Set(toCache);
 
-self.addEventListener("install", (event) => {
+self.addEventListener("install", (event: any /* ExtendableEvent */) => {
 	event.waitUntil(
 		caches
 			.open(ASSETS)
 			.then((cache) => cache.addAll(toCache))
 			.then(() => {
-				self.skipWaiting();
+				(self as any).skipWaiting();
 			}),
 	);
 });
 
-self.addEventListener("activate", (event) => {
+self.addEventListener("activate", (event: any /* ExtendableEvent */) => {
 	event.waitUntil(
 		caches.keys().then(async (keys) => {
 			// delete old caches
@@ -29,12 +28,12 @@ self.addEventListener("activate", (event) => {
 				if (key !== ASSETS) await caches.delete(key); // eslint-disable-line no-await-in-loop
 			}
 
-			self.clients.claim();
+			(self as any).clients.claim();
 		}),
 	);
 });
 
-self.addEventListener("fetch", (event) => {
+self.addEventListener("fetch", (event: any /* ExtendableEvent */) => {
 	if (event.request.method !== "GET" || event.request.headers.has("range")) return;
 
 	const url = new URL(event.request.url);
