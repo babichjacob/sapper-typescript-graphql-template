@@ -19,7 +19,7 @@
 	"version": "2020.05.27",
 	"scripts": {
 		"eslint": "eslint",
-		"eslint:fix": "eslint --fix ./*.js ./src/*.js ./src/components/*.svelte ./src/graphql/*.ts ./src/routes/*.svelte ./src/routes/*.ts",
+		"eslint:fix": "eslint --fix ./*.js ./src/*.ts ./src/components/**/*.svelte ./src/graphql/**/*.ts ./src/routes/**/*.svelte ./src/routes/**/*.ts",
 		"dev": "sapper dev",
 		"build": "cross-env NODE_ENV=production sapper build --legacy",
 		"prod": "npm run build",
