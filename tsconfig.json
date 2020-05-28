@@ -1,5 +1,9 @@
 {
     "compilerOptions": {
+        "lib": [
+            "DOM",
+            "WebWorker"
+        ],
         "target": "ES2016",
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
