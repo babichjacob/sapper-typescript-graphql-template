@@ -29,7 +29,7 @@ const onwarn = (warning, _onwarn) => (warning.code === "CIRCULAR_DEPENDENCY" && 
 
 export default {
 	client: {
-		input: config.client.input(),
+		input: config.client.input().replace(/\.js$/, ".ts"),
 		output: config.client.output(),
 		plugins: [
 			replace({
@@ -77,7 +77,7 @@ export default {
 	},
 
 	server: {
-		input: config.server.input(),
+		input: { server: config.server.input().server.replace(/\.js$/, ".ts") },
 		output: { ...config.server.output(), sourcemap },
 		plugins: [
 			replace({
@@ -106,7 +106,7 @@ export default {
 	},
 
 	serviceworker: {
-		input: config.serviceworker.input(),
+		input: config.serviceworker.input().replace(/\.js$/, ".ts"),
 		output: config.serviceworker.output(),
 		plugins: [
 			resolve(),
@@ -115,6 +115,7 @@ export default {
 				"process.env.NODE_ENV": JSON.stringify(mode),
 			}),
 			commonjs(),
+			typescript(),
 			!dev && terser(),
 		],
 
