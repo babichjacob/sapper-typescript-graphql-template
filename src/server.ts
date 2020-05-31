@@ -29,7 +29,7 @@ const createSapperAndApolloServer = async (graphqlPath: string): Promise<Express
 };
 
 createSapperAndApolloServer("/graphql").then((app) => {
-	app.listen(PORT, (err?: any): void => { // eslint-disable-line @typescript-eslint/no-explicit-any
+	app.listen(PORT, (err?: any): void => { // eslint-disable-line
 		if (err) console.log("error", err);
 	});
 });
