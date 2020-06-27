@@ -7,7 +7,7 @@ This is an extension to the [official Sapper Rollup template](https://github.com
 If you're looking for something with much, much more bundled in, check out [my opinionated project base](https://github.com/babichjacob/sapper-firebase-typescript-graphql-tailwindcss-actions-template).
 
 - [Sapper for Svelte](https://sapper.svelte.dev/)
-  - [Official VS Code Plugin (beta)](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
+  - [Official VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [TypeScript](https://www.typescriptlang.org/)
   - [TypeGraphQL](https://typegraphql.ml/)
   - Inside Svelte components, thanks to [`svelte-preprocess`](https://github.com/kaisermann/svelte-preprocess)
