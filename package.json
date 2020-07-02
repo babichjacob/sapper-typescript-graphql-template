@@ -20,7 +20,7 @@
 	"scripts": {
 		"eslint": "eslint",
 		"eslint:fix": "eslint --fix ./*.js ./src/*.ts ./src/components/**/*.svelte ./src/graphql/**/*.ts ./src/routes/**/*.svelte ./src/routes/**/*.ts",
-		"dev": "sapper dev",
+		"dev": "cross-env ROLLUP_WATCH=true sapper dev",
 		"build": "cross-env NODE_ENV=production sapper build --legacy",
 		"prod": "npm run build",
 		"export": "cross-env NODE_ENV=production sapper export --legacy",
