@@ -10,8 +10,10 @@ import config from "sapper/config/rollup";
 import sveltePreprocess from "svelte-preprocess";
 import pkg from "./package.json";
 
+const { defaults } = require("./svelte.config.js");
+
 const preprocess = [
-	sveltePreprocess(),
+	sveltePreprocess({ defaults }),
 	// You could have more preprocessors, like MDsveX
 ];
 

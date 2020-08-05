@@ -16,7 +16,7 @@
 		"url": "https://github.com/babichjacob/sapper-typescript-graphql-template.git"
 	},
 	"license": "MIT",
-	"version": "2020.08.04",
+	"version": "2020.08.05",
 	"scripts": {
 		"eslint": "eslint",
 		"eslint:fix": "eslint --fix ./*.js ./src/*.ts ./src/components/**/*.svelte ./src/graphql/**/*.ts ./src/routes/**/*.svelte ./src/routes/**/*.ts",
@@ -67,13 +67,13 @@
 		"rollup": "^2.23.0",
 		"rollup-plugin-svelte": "^5.2.3",
 		"rollup-plugin-terser": "^6.1.0",
-		"sapper": "^0.27.16",
+		"sapper": "github:sveltejs/sapper#cbd55c0a66e816a41bceb71b43f3160df0cac6db",
 		"svelte": "^3.24.0",
 		"svelte-check": "^1.0.6",
 		"svelte-preprocess": "^4.0.10",
 		"tslib": "^2.0.0",
 		"type-graphql": "^1.0.0-rc.3",
-		"typescript": "^3.9.7",
+		"typescript": "^4.0.0-dev.20200803",
 		"utf-8-validate": "^5.0.2"
 	}
 }

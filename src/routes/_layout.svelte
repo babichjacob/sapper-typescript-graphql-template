@@ -1,4 +1,8 @@
-<script lang="ts">
+<script context="module">
+	export const preload = () => {};
+</script>
+
+<script>
 	import { stores } from "@sapper/app";
 
 	// You may not want to use `segment`, but it is passed for the time being and will

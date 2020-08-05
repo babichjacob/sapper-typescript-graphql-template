@@ -1,5 +1,7 @@
-<script lang="ts">
+<script>
 	import ExampleComponent from "../components/ExampleComponent.svelte";
+
+	export let data: string;
 </script>
 
 <style>
@@ -41,6 +43,5 @@
 	<ExampleComponent
 		title="🌐 Sapper with TypeScript and GraphQL project base"
 		paragraph="This is an example route and component to make sure everything's working." />
-	
 	<a class="button button-pink" href="/graphql">Check out the GraphQL playground!</a>
 </div>

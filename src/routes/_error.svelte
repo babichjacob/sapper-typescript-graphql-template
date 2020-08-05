@@ -1,4 +1,4 @@
-<script lang="ts">
+<script>
 	export let status: string;
 	export let error: Error;
 	
