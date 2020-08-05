@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
 	export let status: string;
 	export let error: Error;
 	
@@ -16,7 +16,7 @@
 	}
 	
 	h1, h2 {
-		color: #C53030;
+		color: #C81E1E;
 	}
 
 	h1 {

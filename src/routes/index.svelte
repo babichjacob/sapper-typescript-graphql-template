@@ -1,4 +1,4 @@
-<script lang="typescript">
+<script lang="ts">
 	import ExampleComponent from "../components/ExampleComponent.svelte";
 </script>
 
@@ -24,16 +24,16 @@
 
 	.button:focus {
 		outline: 0;
-		box-shadow: 0 0 0 3px rgba(66, 153, 225, 0.5);
+		box-shadow: 0 0 0 3px rgba(118, 169, 250, 0.45);
 	}
 
 	.button-pink {
-		color: #97266D;
-		background-color: #FED7E2;
+		color: #99154B;
+		background-color: #FAD1E8;
 	}
 
 	.button-pink:hover, .button-pink:focus {
-		background-color: #FBB6CE;
+		background-color: #F8B4D9;
 	}
 </style>
 
