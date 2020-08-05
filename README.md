@@ -36,7 +36,7 @@ Click the `Use this template` button on [this project's GitHub page](https://git
 
 ```sh
 cd sapper-typescript-graphql-template
-npm install  # pnpm also works
+npm install  # pnpm probably won't work
 ```
 
 ## 🛠 Usage
