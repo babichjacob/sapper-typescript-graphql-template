@@ -1,7 +1,5 @@
 <script>
 	import ExampleComponent from "../components/ExampleComponent.svelte";
-
-	export let data: string;
 </script>
 
 <style>
