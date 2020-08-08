@@ -36,9 +36,6 @@ Click the `Use this template` button on [this project's GitHub page](https://git
 
 ```sh
 cd sapper-typescript-graphql-template
-# There is also a beta branch of this repository for the upcoming versions of Sapper and TypeScript
-# If you want to try them,
-# git checkout beta
 npm install  # pnpm also works
 ```
 
