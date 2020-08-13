@@ -77,7 +77,7 @@ This project base comes with [source maps](https://blog.teamtreehouse.com/introd
        import { createApolloServer } from "./graphql";
        ```
     2. ```ts
-	     const apolloServer = await createApolloServer();
+       const apolloServer = await createApolloServer();
        ```
     3. ```ts
        apolloServer.applyMiddleware({ app, path: graphqlPath });
