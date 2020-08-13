@@ -71,6 +71,24 @@ The [Apple touch icon](https://developer.apple.com/library/archive/documentation
 ### 🗺 Source maps
 This project base comes with [source maps](https://blog.teamtreehouse.com/introduction-source-maps) enabled during development and disabled during production for the best compromise between performance and developer experience. You can change this behavior through the `sourcemap` variable in `rollup.config.js`.
 
+### 🕸 Optionally removing the GraphQL server
+1. Remove these lines in `src/server.ts`:
+    1. ```ts
+       import { createApolloServer } from "./graphql";
+       ```
+    2. ```ts
+	     const apolloServer = await createApolloServer();
+       ```
+    3. ```ts
+       apolloServer.applyMiddleware({ app, path: graphqlPath });
+       ```
+
+2. Remove the now-useless `graphqlPath` parameter to `createSapperAndApolloServer` in `src/server.ts`. This is also a good opportunity to rename the function since there is no longer an Apollo Server.
+
+3. Delete the `src/graphql` folder.
+
+4. Uninstall the `apollo-server-express`, `bufferutil`, `class-validator`, `reflect-metadata`, `type-graphql`, and `utf-8-validate` packages.
+
 ## 😵 Help! I have a question
 
 [Create an issue](https://github.com/babichjacob/sapper-typescript-graphql-template/issues/new) and I'll try to help.
