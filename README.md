@@ -83,11 +83,11 @@ This project base comes with [source maps](https://blog.teamtreehouse.com/introd
        apolloServer.applyMiddleware({ app, path: graphqlPath });
        ```
 
-2. Remove the now-useless `graphqlPath` parameter to `createSapperAndApolloServer` in `src/server.ts`. This is also a good opportunity to rename the function since there is no longer an Apollo Server.
+2. Remove the now-useless `graphqlPath` parameter to `createSapperAndApolloServer` in `src/server.ts`. This is also a good opportunity to rename the function since there is no longer an Apollo Server
 
-3. Delete the `src/graphql` folder.
+3. Delete the `src/graphql` folder
 
-4. Uninstall the `apollo-server-express`, `bufferutil`, `class-validator`, `graphql`, `reflect-metadata`, `type-graphql`, and `utf-8-validate` packages.
+4. Uninstall the `apollo-server-express`, `bufferutil`, `class-validator`, `graphql`, `reflect-metadata`, `type-graphql`, and `utf-8-validate` packages
 
 ## 😵 Help! I have a question
 
