@@ -48,7 +48,9 @@ export default {
 				browser: true,
 				dedupe: ["svelte"],
 			}),
-			commonjs(),
+			commonjs({
+				sourceMap: !!sourcemap,
+			}),
 			typescript({
 				noEmitOnError: !dev,
 				sourceMap: !!sourcemap,
@@ -98,7 +100,9 @@ export default {
 			resolve({
 				dedupe: ["svelte"],
 			}),
-			commonjs(),
+			commonjs({
+				sourceMap: !!sourcemap,
+			}),
 			typescript({
 				noEmitOnError: !dev,
 				sourceMap: !!sourcemap,
@@ -122,7 +126,9 @@ export default {
 				"process.browser": true,
 				"process.env.NODE_ENV": JSON.stringify(mode),
 			}),
-			commonjs(),
+			commonjs({
+				sourceMap: !!sourcemap,
+			}),
 			typescript({
 				noEmitOnError: !dev,
 				sourceMap: !!sourcemap,
