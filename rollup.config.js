@@ -7,20 +7,16 @@ import svelte from "rollup-plugin-svelte";
 import babel from "@rollup/plugin-babel";
 import { terser } from "rollup-plugin-terser";
 import config from "sapper/config/rollup";
-import sveltePreprocess from "svelte-preprocess";
 import pkg from "./package.json";
 
-const { defaults } = require("./svelte.config.js");
-
-const preprocess = [
-	sveltePreprocess({ defaults }),
-	// You could have more preprocessors, like MDsveX
-];
+const { createPreprocessors } = require("./svelte.config.js");
 
 const mode = process.env.NODE_ENV;
 const dev = mode === "development";
 const sourcemap = dev ? "inline" : false;
 const legacy = !!process.env.SAPPER_LEGACY_BUILD;
+
+const preprocess = createPreprocessors({ sourceMap: !!sourcemap });
 
 const warningIsIgnored = (warning) => warning.message.includes(
 	"Use of eval is strongly discouraged, as it poses security risks and may cause issues with minification",

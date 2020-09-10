@@ -1,12 +1,17 @@
 const sveltePreprocess = require("svelte-preprocess");
 
-const defaults = {
-	script: "typescript",
-};
+const createPreprocessors = ({ sourceMap }) => [
+	sveltePreprocess({
+		sourceMap,
+		defaults: {
+			script: "typescript",
+		},
+	}),
+	// You could have more preprocessors, like mdsvex
+];
 
 module.exports = {
-	// Real svelte-preprocess configuration is in `rollup.config.js`
-	// This is only for the language server for VS Code and svelte-check
-	preprocess: sveltePreprocess({ defaults }),
-	defaults,
+	createPreprocessors,
+	// Options for `svelte-check` and the VS Code extension
+	preprocess: createPreprocessors({ sourceMap: true }),
 };
