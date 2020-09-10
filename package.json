@@ -26,9 +26,9 @@
 		"sapper:build": "cross-env NODE_ENV=production sapper build --legacy",
 		"sapper:export": "cross-env NODE_ENV=production sapper export --legacy",
 		"dev": "run-p validate:dev sapper:dev",
-		"prod": "run-s validate sapper:build",
+		"prod": "run-s sapper:build validate",
 		"start": "node __sapper__/build",
-		"export": "run-s validate sapper:export"
+		"export": "run-s sapper:export validate"
 	},
 	"dependencies": {
 		"compression": "^1.7.4",
