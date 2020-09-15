@@ -9,7 +9,7 @@ If you're looking for something with much, much more bundled in, check out [my o
 - [Sapper for Svelte](https://sapper.svelte.dev/)
   - [Official VS Code Plugin](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode)
 - [TypeScript](https://www.typescriptlang.org/)
-  - [TypeGraphQL](https://typegraphql.ml/)
+  - [TypeGraphQL](https://typegraphql.com/)
   - Inside Svelte components, thanks to [`svelte-preprocess`](https://github.com/kaisermann/svelte-preprocess)
 - [Progressive Web App (PWA)](https://developer.mozilla.org/en-US/docs/Web/Progressive_web_apps) best practices set up
   - [`manifest.json`](https://developer.mozilla.org/en-US/docs/Web/Manifest)'s most important fields filled out
