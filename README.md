@@ -42,13 +42,11 @@ npm install  # pnpm also works
 ## 🛠 Usage
 
 ### 🧪 Development
-
 ```sh
 npm run dev
 ```
 
 ### 🔨 Building for Production
-If you do not need to include heavy Babel transforms and polyfills to support old browsers on your site, then remove the `--legacy` flag in the `sapper:build` package script to lighten it up.
 ```sh
 npm run prod
 ```
@@ -56,7 +54,6 @@ npm run prod
 ### 📦 Exporting a Static Site
 Your GraphQL server will not be exported with the rest of the site.
 
-If you do not need to include heavy Babel transforms and polyfills to support old browsers on your site, then remove the `--legacy` flag in the `export` package script to lighten it up.
 ```sh
 npm run export
 ```
